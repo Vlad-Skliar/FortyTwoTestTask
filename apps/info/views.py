@@ -7,8 +7,5 @@ class InfoDetailView(DetailView):
     context_object_name = 'info'
 
     def get_object(self):
-        if self.request.user and self.request.user.is_active:
-            obj = self.request.user.info.all().first()
-        else:
-            obj = Info.objects.get(id=1)
+        obj = Info.objects.get(id=1)
         return obj
