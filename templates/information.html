@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+Information about you
+{% endblock %}
+
+{%block content%}
+    First name: {{ info.first_name }}<br>
+    Last name: {{ info.last_name }}<br>
+    Biography: {{ info.bio }}<br>
+    Birtdate: {{ info.birthdate }}<br>
+    Contacts: {{ info.contacts }}
+{%endblock%}
