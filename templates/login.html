@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{%block content%}
+    <form action='{% url "login" %}' method='post'>
+        {% csrf_token%}
+        {%if error_msg%}
+            {{error_msg}}
+        {%endif%}
+          <label for="username">Username or email:</label>
+          <input class="form-control" type="text" name="username" id="username" value={{ username_or_email|default_if_none:''}}>
+        </div>
+          <label for="other_contacts">Password:</label>
+         <input class="form-control" type="password" name="password" id="password" {{ password|default_if_none:''}}>
+        </div>
+    <button type="submit">Login</button>
+  </form>
+{%endblock%}

@@ -9,4 +9,6 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.InfoDetailView.as_view(), name='info'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/$', 'apps.info.views.login_view', name='login'),
+    url(r'^logout/$', views.LogoutView.as_view(), name='logout'),
 )

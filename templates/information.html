@@ -5,9 +5,17 @@ Information about you
 {% endblock %}
 
 {%block content%}
-    First name: {{ info.first_name }}<br>
-    Last name: {{ info.last_name }}<br>
-    Biography: {{ info.bio }}<br>
-    Birtdate: {{ info.birthdate }}<br>
-    Contacts: {{ info.contacts }}
+    {% if user.is_authenticated %}
+        User:{{user.username}}<br>
+        First name: {{ info.first_name }}<br>
+        Last name: {{ info.last_name }}<br>
+        Biography: {{ info.bio }}<br>
+        Birtdate: {{ info.birthdate }}<br>
+        Contacts: {{ info.contacts }}<br>
+        <a href="{% url 'logout'%}">Log out</a>
+    {%else%}
+        User:AnonymousUser<br>
+        Sing in, please
+        <a href="{% url 'login'%}">Sing in</a>
+    {%endif%}
 {%endblock%}
